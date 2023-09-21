@@ -9,7 +9,6 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-void display(void);
 void read_command(char *command, size_t size);
 void execute(char *command);
 

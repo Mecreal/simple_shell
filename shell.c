@@ -11,7 +11,6 @@ int main(void)
 
 	while (1)
 	{
-		display();
 		read_command(command, sizeof(command));
 		execute(command);
 	}

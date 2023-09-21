@@ -11,6 +11,8 @@
 
 void read_command(char* command, size_t size)
 {
+	printf("$ ");
+
 	if (fgets(command, size, stdin) == NULL)
 	{
 		if (feof(stdin))
