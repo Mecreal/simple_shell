@@ -12,6 +12,7 @@ void execute(char *command)
 {
 	pid_t pid = fork();
 	char *args[2];
+	
 	args[0] = command;
 	args[1] = NULL;
 
