@@ -11,7 +11,7 @@ void display(void)
 {
 	int _write;
 
-	_write = write(STDOUT_FILENO, "$ ", 2);
+	_write = write(STDOUT_FILENO, "#cisfun$ ", 9);
 	if (_write == -1)
 	{
 		printf("Error");
