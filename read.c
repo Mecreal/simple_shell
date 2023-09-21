@@ -9,7 +9,7 @@
  * @size: the size of the command in Bytes.
  */
 
-void read_command(char* command, size_t size)
+void read_command(char command[], size_t size)
 {
 	printf("$ ");
 

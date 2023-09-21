@@ -8,11 +8,11 @@
  * @command: string holds the command.
  */
 
-void execute(char *command)
+void execute(char command[])
 {
 	pid_t pid = fork();
 	char *args[130];
-	char *envp[] = {NULL};
+	char *envp[] = {"USERNAME=amira", NULL};
 	char *token = strtok((char *)command, " ");
 	int status;
 	int arg_count = 0;

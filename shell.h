@@ -9,7 +9,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-void read_command(char *command, size_t size);
-void execute(char *command);
+void read_command(char command[], size_t size);
+void execute(char command[]);
 
 #endif /* SHELL_H */

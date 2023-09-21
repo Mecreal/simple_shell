@@ -7,11 +7,11 @@
 
 int main(void)
 {
-	char command[200];
+	char command[1024];
 
 	while (1)
 	{
-		read_command(command, sizeof(command));
+		read_command(command, 1024);
 		execute(command);
 	}
 	return (0);
