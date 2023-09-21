@@ -78,7 +78,7 @@ char **split_line(char *line)
  */
 int execute(char **args)
 {
-	pid_t pid, wpid;
+	pid_t pid;
 	int status;
 
 	if (strcmp(args[0], "exit") == 0)
@@ -96,7 +96,7 @@ int execute(char **args)
 	} else
 	{
 		do {
-			wpid = waitpid(pid, &status, WUNTRACED);
+			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
 
