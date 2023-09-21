@@ -12,9 +12,10 @@ void execute(char *command)
 {
 	pid_t pid = fork();
 	char *args[2];
-	
+	char *envp[] = {NULL};
 	args[0] = command;
 	args[1] = NULL;
+	int status;
 
 	if (pid == -1)
 	{
@@ -23,12 +24,18 @@ void execute(char *command)
 	}
 	else if(pid == 0)
 	{
-		if (execve(command, args, NULL) == -1) /* we treat the command as programPATH here */
+		if (execve(command, args, envp) == -1) /* we treat the command as programPATH here */
 		{
 			perror("execve");
 			exit(EXIT_FAILURE);
 		}
 	}
 	else
-		wait(NULL);
+	{
+		if (wait(&status) == -1)
+		{
+			perror("wait");
+			exit(EXIT_FAILURE);
+		}
+	}
 }
