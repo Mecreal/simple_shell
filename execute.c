@@ -13,9 +13,10 @@ void execute(char *command)
 	pid_t pid = fork();
 	char *args[2];
 	char *envp[] = {NULL};
-	args[0] = command;
-	args[1] = NULL;
 	int status;
+
+       	args[0] = command;
+	args[1] = NULL;
 
 	if (pid == -1)
 	{
