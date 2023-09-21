@@ -11,12 +11,12 @@
 void execute(char *command)
 {
 	pid_t pid = fork();
-	char *args[2];
+	char *args[130];
 	char *envp[] = {NULL};
+	char *token = strtok((char *)command, " ");
 	int status;
+	int arg_count = 0;
 
-       	args[0] = command;
-	args[1] = NULL;
 
 	if (pid == -1)
 	{
@@ -25,6 +25,12 @@ void execute(char *command)
 	}
 	else if(pid == 0)
 	{
+		while (token != NULL)
+		{
+			args[arg_count++] = token;
+			token = strtok(NULL, " ");
+		}
+		args[arg_count] = NULL;
 		if (execve(command, args, envp) == -1) /* we treat the command as programPATH here */
 		{
 			perror("execve");
