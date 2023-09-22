@@ -29,8 +29,11 @@ char *read_line(void)
 {
 	char *line = NULL;
 	size_t len = 0;
+	/*ssize_t n;*/
 
 	getline(&line, &len, stdin);
+
+
 	return (line);
 }
 
