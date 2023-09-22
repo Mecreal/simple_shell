@@ -23,7 +23,7 @@ void execute(char command[])
 		perror("fork");
 		exit(EXIT_FAILURE);
 	}
-	else if(pid == 0)
+	else if (pid == 0)
 	{
 		while (token != NULL)
 		{
@@ -31,7 +31,7 @@ void execute(char command[])
 			token = strtok(NULL, " ");
 		}
 		args[arg_count] = NULL;
-		if (execve(command, args, envp) == -1) /* we treat the command as programPATH here */
+		if (execve(command, args, envp) == -1)
 		{
 			perror("execve");
 			exit(EXIT_FAILURE);

@@ -4,7 +4,7 @@
 #include <string.h>
 
 /**
- * read - it's responsible for the user input of the shell
+ * read_command - it's responsible for the user input of the shell
  * @command: string holds the command.
  * @size: the size of the command in Bytes.
  */
