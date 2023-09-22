@@ -11,9 +11,10 @@
 
 int main(int ac, char **av, char **env)
 {
-	(void)ac;
 	int status = 0;
 	char **rlr = NULL;
+
+	(void)ac;
 
 	while (1)
 	{
