@@ -9,7 +9,7 @@
  * Return: 0 on success, 1 on failure
  */
 
-int main(int ac, char **av, char **env)
+int main(int ac, char **av)
 {
 	int status = 0;
 	char **rlr = NULL;
