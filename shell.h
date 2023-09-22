@@ -1,6 +1,9 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+extern char **environ;
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -11,7 +14,7 @@
 
 void read_command(char command[], size_t size);
 char **tokenize(char *str);
-int ex(char **str, int status, char **v, char **env);
+int ex(char **str, int status, char **v);
 void execute(char command[]);
 char **read_l(char **av);
 char *_strcat(char *first, char *second);

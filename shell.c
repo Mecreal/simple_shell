@@ -24,7 +24,12 @@ int main(int ac, char **av, char **env)
 				write(1, "\n", 1);
 			return (status);
 		}
-		ex(rlr, status, av, env);
+		if (rlr[0] == NULL || rlr[0][0] == '\0')
+		{
+			_mat_clear(rlr);
+			continue;
+		}
+		ex(rlr, status, av);
 		/*free(rlr), rlr = NULL;*/
 	}
 	return (0);

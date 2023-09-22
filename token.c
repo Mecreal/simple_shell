@@ -12,7 +12,7 @@ char **tokenize(char *str)
 {
 	char *token, **tokens = NULL;
 	int count = 0;
-	char *delim = "\t \n";
+	char *delim = " \n\t\r\a\v";
 	char *n_str;
 
 	n_str = _strdup(str);

@@ -1,13 +1,12 @@
 #include "shell.h"
 /**
- * ex - execve the command
- *@tokens: Argument count
- *@status: is the status to be returned
- *@av: argument variable
- *@env: envirenement variable
- * Return: 0 on success, 1 on failure.
- */
-int ex(char **tokens, int status, char **av, char **env)
+* ex - execve the command
+*@tokens: Argument count
+*@status: is the status to be returned
+*@av: argument variable
+* Return: 0 on success, 1 on failure.
+*/
+int ex(char **tokens, int status, char **av)
 {
 	pid_t pid;
 
@@ -20,11 +19,11 @@ int ex(char **tokens, int status, char **av, char **env)
 	}
 	else if (!pid)
 	{
-		if (execve(tokens[0], tokens, env) == -1)
+		if (execve(tokens[0], tokens, environ) == -1)
 		{
 			perror(av[0]);
 			_mat_clear(tokens);
-			exit(1);
+			exit(127);
 		}
 	}
 	else
@@ -32,5 +31,6 @@ int ex(char **tokens, int status, char **av, char **env)
 		wait(&status);
 		_mat_clear(tokens), tokens = NULL;
 	}
+
 	return (0);
 }
