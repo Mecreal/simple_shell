@@ -11,7 +11,7 @@ char **read_l(char **av)
 {
 	char *buffer = NULL, **tokens = NULL;
 	size_t size_buffer;
-	unsigned int n_char = 0;
+	int n_char = 0;
 
 	if (isatty(0))
 		write(1, "$ ", 2);
