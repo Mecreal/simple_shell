@@ -9,9 +9,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-void shell_loop(void);
-char *read_line(void);
-char **split_line(char *line);
-int execute(char **args);
+void read_command(char command[], size_t size);
+void execute(char command[]);
 
 #endif /* SHELL_H */

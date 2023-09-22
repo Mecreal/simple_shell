@@ -1,9 +1,10 @@
 #include "shell.h"
 
 /**
- * shell_loop - Main loop for the shell
- * Return: Null
+ * main - Entry Point for the program
+ * Return: 0 on Success, -1 on Fail.
  */
+<<<<<<< HEAD
 void shell_loop(void)
 {
 	char *line;
@@ -73,35 +74,17 @@ char **split_line(char *line)
 	tokens[position] = NULL;
 	return (tokens);
 }
+=======
+>>>>>>> c723c8f0abc0cdc081093488840e9264dd1d8898
 
-/**
- * execute - Executes a command
- * @args: Null-terminated array of arguments
- * Return: 1 if the shell should continue, 0 if it should terminate
- */
-int execute(char **args)
+int main(void)
 {
-	pid_t pid;
-	int status;
+	char command[1024];
 
-	if (strcmp(args[0], "exit") == 0)
-		return (0);
-
-	pid = fork();
-	if (pid == 0)
+	while (1)
 	{
-		if (execvp(args[0], args) == -1)
-			perror("error");
-		exit(EXIT_FAILURE);
-	} else if (pid < 0)
-	{
-		perror("error");
-	} else
-	{
-		do {
-			waitpid(pid, &status, WUNTRACED);
-		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		read_command(command, 1024);
+		execute(command);
 	}
-
-	return (1);
+	return (0);
 }
