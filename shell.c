@@ -5,7 +5,6 @@
  * main - Entry point for the shell
  * @ac: number of variable
  * @av: argument variable
- * @env: environment var
  * Return: 0 on success, 1 on failure
  */
 
