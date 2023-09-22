@@ -1,18 +1,31 @@
 #include "shell.h"
 
+
 /**
- * main - Entry Point for the program
- * Return: 0 on Success, -1 on Fail.
+ * main - Entry point for the shell
+ * @ac: number of variable
+ * @av: argument variable
+ * @env: environment var
+ * Return: 0 on success, 1 on failure
  */
 
-int main(void)
+int main(int ac, char **av, char **env)
 {
-	char command[1024];
+	(void)ac;
+	int status = 0;
+	char **rlr = NULL;
 
 	while (1)
 	{
-		read_command(command, 1024);
-		execute(command);
+		rlr = read_l(av);
+		if (!rlr)
+		{
+			if (isatty(0))
+				write(1, "\n", 1);
+			return (status);
+		}
+		ex(rlr, status, av, env);
+		/*free(rlr), rlr = NULL;*/
 	}
 	return (0);
 }

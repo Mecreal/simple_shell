@@ -1,7 +1,5 @@
 #include "shell.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 /**
  * read_command - it's responsible for the user input of the shell

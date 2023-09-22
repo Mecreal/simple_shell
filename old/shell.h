@@ -10,14 +10,6 @@
 #include <sys/stat.h>
 
 void read_command(char command[], size_t size);
-char **tokenize(char *str);
-int ex(char **str, int status, char **v, char **env);
 void execute(char command[]);
-char **read_l(char **av);
-char *_strcat(char *first, char *second);
-int _strlen(char *str);
-char *_strdup(char *str);
-void _strcpy(char *dest, const char *src);
-int _mat_clear(char **mat);
 
 #endif /* SHELL_H */
