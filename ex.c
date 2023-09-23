@@ -85,6 +85,7 @@ int ex(char **tokens, int *exit_status, char **av)
 	else if (pid == 0)
 	{
 		handle_child_process(tokens, *exit_status, av);
+		_mat_clear(tokens);
 	} else
 	{
 		wait(&status);

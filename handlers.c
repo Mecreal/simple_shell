@@ -93,8 +93,8 @@ int handle_builtin(char **commandArgs, int *exit_status)
 		if (commandArgs[1])
 		{
 			*exit_status = _atoi(commandArgs[1]);
-			_mat_clear(commandArgs);
 		}
+		_mat_clear(commandArgs);
 		exit(*exit_status);
 	}
 
