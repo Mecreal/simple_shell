@@ -46,8 +46,7 @@ int main(int ac, char **av)
 			commandArgs[0] = strdup(fullCommandPath);
 		}
 		ex(commandArgs, &exit_status, av);
-		free(fullCommandPath);
-		fullCommandPath = NULL;
+		free(fullCommandPath), fullCommandPath = NULL;
 	}
 	free(fullCommandPath);
 	return (exit_status);

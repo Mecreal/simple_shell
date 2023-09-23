@@ -19,6 +19,10 @@ char **tokenize(char *str)
 
 	for (token = strtok(n_str, delim); token; token = strtok(NULL, delim))
 	{
+		if (token[0] == '#')
+		{
+			break;
+		}
 		tokens = realloc(tokens, (count + 1) * sizeof(char *));
 		if (!tokens)
 		{
@@ -31,6 +35,6 @@ char **tokenize(char *str)
 	}
 	tokens = realloc(tokens, (count + 1) * sizeof(char *));
 	tokens[count] = NULL;
-	free(n_str), free(token);
+	free(n_str);
 	return (tokens);
 }

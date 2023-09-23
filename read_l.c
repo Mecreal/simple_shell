@@ -31,6 +31,7 @@ char **read_l(char **av)
 	{
 		perror(av[0]);
 		free(buffer);
+		_mat_clear(tokens);
 		return (NULL);
 	}
 
