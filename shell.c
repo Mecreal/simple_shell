@@ -15,7 +15,6 @@ int main(int ac, char **av)
 	char *fullCommandPath = NULL;
 
 	(void)ac;
-
 	while (1)
 	{
 		commandArgs = read_l(av);

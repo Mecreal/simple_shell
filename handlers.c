@@ -12,6 +12,7 @@ char *path_handler(char *input)
 	struct stat st;
 	char *result;
 
+
 	path = _getenv("PATH");
 	if (!path)
 	{
@@ -73,7 +74,6 @@ char *build(char *input, char *dir)
 	temp = _strcat(cmd, input);
 	free(cmd);
 	cmd = temp;
-
 	return (cmd);
 }
 
@@ -92,7 +92,7 @@ int handle_builtin(char **commandArgs, int *exit_status)
 	{
 		if (commandArgs[1])
 		{
-			*exit_status = atoi(commandArgs[1]);
+			*exit_status = _atoi(commandArgs[1]);
 			_mat_clear(commandArgs);
 		}
 		exit(*exit_status);

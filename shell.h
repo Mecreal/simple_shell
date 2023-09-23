@@ -11,7 +11,9 @@ extern char **environ;
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-
+#include <limits.h>
+#include <fcntl.h>
+#include <errno.h>
 
 
 
@@ -38,6 +40,13 @@ void handle_exit(char **tokens, int status);
 void handle_exec(char **tokens, char **av);
 void handle_child_process(char **tokens, int status, char **av);
 int handle_builtin(char **commandArgs, int *exit_status);
+int is_delim(char c, char *delim);
+int _atoi(char *s);
+void initialize(int *exit_status, char ***commandArgs, char **fullCommandPath);
+void proc_cmd(char ***cArgs, char **f_cmd_pt, int *exit_status, char **av);
+char *read_entire_line(void);
+void safe_free(char **ptr);
+
 
 
 

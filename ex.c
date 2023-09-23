@@ -28,6 +28,11 @@ void handle_exec(char **tokens, char **av)
 		_mat_clear(tokens);
 		exit(127);
 	}
+	if (!environ)
+	{
+		_mat_clear(tokens);
+		exit(128);
+	}
 }
 
 /**

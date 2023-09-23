@@ -22,3 +22,19 @@ int _mat_clear(char **mat)
 	free(mat), mat = NULL;
 	return (0);
 }
+
+
+
+/**
+ * safe_free - copies the string pointed to by src to dest
+ * @ptr: the destination string
+ * Return: 0 success 1 fail
+ */
+void safe_free(char **ptr)
+{
+	if (*ptr)
+	{
+		free(*ptr);
+		*ptr = NULL;
+	}
+}
