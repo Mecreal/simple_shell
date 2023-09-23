@@ -2,10 +2,10 @@
 
 
 /**
- * _strcpy - copies the string pointed to by src to dest
- * @dest: the destination string
- * @src: the source string
- */
+* _strcpy - copies the string pointed to by src to dest
+* @dest: the destination string
+* @src: the source string
+*/
 
 void _strcpy(char *dest, const char *src)
 {
@@ -17,18 +17,20 @@ void _strcpy(char *dest, const char *src)
 }
 
 /**
- * _strcat - concatenates two string in a path form
- * @first: the first given destination
- * @second: the second given source
- *
- * Return: (Success) a pointer to the newly concatenated string
- * ------- (Fail) NULL if memory allocation fails
- */
+* _strcat - concatenates two string in a path form
+* @first: the first given destination
+* @second: the second given source
+*
+* Return: (Success) a pointer to the newly concatenated string
+* ------- (Fail) NULL if memory allocation fails
+*/
 
 char *_strcat(char *first, char *second)
 {
 	int len1 = _strlen(first);
+
 	int len2 = _strlen(second);
+
 	char *result = malloc(len1 + len2 + 2);
 
 	if (!result)
@@ -43,12 +45,12 @@ char *_strcat(char *first, char *second)
 
 
 /**
- * _strlen - finds the length of a given string
- * @str: the given string
- *
- * Return: (Success) the length of the string
- * ------- (Fail) negative value
- */
+* _strlen - finds the length of a given string
+* @str: the given string
+*
+* Return: (Success) the length of the string
+* ------- (Fail) negative value
+*/
 int _strlen(char *str)
 {
 	int len;
@@ -59,12 +61,12 @@ int _strlen(char *str)
 }
 
 /**
- * _strdup - dupicates string
- * @str: the given string
- *
- * Return: (Success) a pointer to the duplicated string
- * ------- (Fail) return a null pointer
- */
+* _strdup - dupicates string
+* @str: the given string
+*
+* Return: (Success) a pointer to the duplicated string
+* ------- (Fail) return a null pointer
+*/
 char *_strdup(char *str)
 {
 	char *dupl;
@@ -76,4 +78,26 @@ char *_strdup(char *str)
 		return (NULL);
 	_strcpy(dupl, str);
 	return (dupl);
+}
+
+
+/**
+* _strcmp - compare string
+* @s1: the given string
+* @s2: the given string 2
+*
+* Return: (Success) a pointer to the duplicated string
+* ------- (Fail) return a null pointer
+*/
+int _strcmp(char *s1, char *s2)
+{
+	if (!s1 || !s2)
+		return (1);
+
+	while (*s1 && (*s1 == *s2))
+	{
+		++s1;
+		++s2;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }

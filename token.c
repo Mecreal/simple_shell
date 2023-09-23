@@ -31,6 +31,6 @@ char **tokenize(char *str)
 	}
 	tokens = realloc(tokens, (count + 1) * sizeof(char *));
 	tokens[count] = NULL;
-	free(n_str);
+	free(n_str), free(token);
 	return (tokens);
 }

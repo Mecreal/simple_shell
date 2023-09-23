@@ -16,9 +16,9 @@ int _mat_clear(char **mat)
 
 	while (mat && mat[count])
 	{
-		free(mat[count]);
+		free(mat[count]), mat[count] = NULL;
 		count++;
 	}
-	free(mat);
+	free(mat), mat = NULL;
 	return (0);
 }
