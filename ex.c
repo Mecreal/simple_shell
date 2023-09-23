@@ -40,7 +40,12 @@ void handle_child_process(char **tokens, int status, char **av)
 {
 	if (tokens != NULL && tokens[0] != NULL)
 	{
-		handle_exit(tokens, status);
+		if (_strcmp(tokens[0], "exit") == 0)
+		{
+			_mat_clear(tokens);
+			exit(status);
+		}
+
 		if (!environ)
 		{
 			_mat_clear(tokens);
@@ -51,7 +56,6 @@ void handle_child_process(char **tokens, int status, char **av)
 	_mat_clear(tokens);
 	exit(0);
 }
-
 
 
 /**
