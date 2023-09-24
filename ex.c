@@ -22,6 +22,8 @@ void handle_exit(char **tokens, int status)
  */
 void handle_exec(char **tokens, char **av)
 {
+	struct stat st;
+
 	if (execve(tokens[0], tokens, environ) == -1)
 	{
 		perror(av[0]);
@@ -32,6 +34,12 @@ void handle_exec(char **tokens, char **av)
 	{
 		_mat_clear(tokens);
 		exit(128);
+	}
+	if (stat(av[0], &st) != 0)
+	{
+		perror(av[0]);
+		_mat_clear(tokens);
+		exit(129);
 	}
 }
 

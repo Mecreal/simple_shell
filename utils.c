@@ -38,3 +38,4 @@ void safe_free(char **ptr)
 		*ptr = NULL;
 	}
 }
+

@@ -42,11 +42,9 @@ void handle_child_process(char **tokens, int status, char **av);
 int handle_builtin(char **commandArgs, int *exit_status);
 int is_delim(char c, char *delim);
 int _atoi(char *s);
-void initialize(int *exit_status, char ***commandArgs, char **fullCommandPath);
-void proc_cmd(char ***cArgs, char **f_cmd_pt, int *exit_status, char **av);
-char *read_entire_line(void);
 void safe_free(char **ptr);
-
+void cleanup(char **commandArgs, char *fullCommandPath);
+int handle_cmd(char **cmdArgs, char **f_cmd_pth, int *ext_stat, char **av);
 
 
 

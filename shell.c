@@ -2,11 +2,11 @@
 
 
 /**
- * main - Entry point for the shell
- * @ac: number of variable
- * @av: argument variable
- * Return: 0 on success, 1 on failure
- */
+* main - Entry point for the shell
+* @ac: number of variable
+* @av: argument variable
+* Return: 0 on success, 1 on failure
+*/
 
 int main(int ac, char **av)
 {
