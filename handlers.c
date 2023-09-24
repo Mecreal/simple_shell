@@ -9,6 +9,7 @@
 char *path_handler(char *input)
 {
 	char *path, *token, *new_node;
+
 	struct stat st;
 	char *result;
 
@@ -50,6 +51,7 @@ char *path_handler(char *input)
 char *build(char *input, char *dir)
 {
 	char *cmd, *temp;
+
 	size_t len;
 
 	if (input == NULL || dir == NULL)
@@ -88,6 +90,8 @@ char *build(char *input, char *dir)
 
 int handle_builtin(char **commandArgs, int *exit_status)
 {
+	int i = 0;
+
 	if (strcmp(commandArgs[0], "exit") == 0)
 	{
 		if (commandArgs[1])
@@ -97,6 +101,17 @@ int handle_builtin(char **commandArgs, int *exit_status)
 		_mat_clear(commandArgs);
 		exit(*exit_status);
 	}
+	else if (strcmp(commandArgs[0], "env") == 0)
+	{
+		while (environ[i])
+		{
+			write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
+			write(STDOUT_FILENO, "\n", 1);
+			i++;
+		}
+		return (1);
+	}
+
 
 	return (0);
 }
