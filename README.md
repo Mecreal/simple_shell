@@ -1,5 +1,5 @@
 #C - Simple Shell
 Executed by:
-	Ibtissam BOUTAYEB
+	Amira MEDHAT
 	Hamza ABOUABID
 
